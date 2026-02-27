@@ -156,6 +156,8 @@
 .product-card::before {
   content: '';
   @apply absolute inset-0 bg-gradient-to-t from-glow-pink-500/10 to-transparent opacity-0 transition-opacity duration-300;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .product-card:hover::before {
@@ -164,6 +166,12 @@
 
 .product-card:hover {
   @apply shadow-glow -translate-y-2;
+}
+
+/* Ensure product card content is clickable */
+.product-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* Floating particles animation */
