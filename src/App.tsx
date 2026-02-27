@@ -485,7 +485,7 @@ function App() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [cartCount, setCartCount] = useState(0)
+  const [cartCount] = useState(0)
   const heroRef = useRef<HTMLDivElement>(null)
   
   const { scrollYProgress } = useScroll()
@@ -508,10 +508,6 @@ function App() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const addToCart = () => {
-    setCartCount(prev => prev + 1)
-  }
 
   return (
     <div className="min-h-screen bg-gradient-pink">
@@ -908,10 +904,6 @@ function App() {
                     href={product.affiliateLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(e) => {
-                      console.log('Button clicked! Link:', product.affiliateLink);
-                      // Let the default link behavior happen
-                    }}
                     className="relative z-10 block w-full py-3 bg-glow-pink-500 text-white font-medium rounded-xl hover:bg-glow-pink-600 transition-all hover:scale-[1.02] active:scale-[0.98] text-center no-underline cursor-pointer"
                     style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', textDecoration: 'none' }}
                   >
